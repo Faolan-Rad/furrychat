@@ -1,0 +1,64 @@
+{
+  "name": "furriopolis",
+  "version": "0.0.1",
+  "productName": "Furriopolis",
+  "description": "Furriopolrs chat client",
+  "author": "Faolan (https://github.com/Faolan-Rad/)",
+  "license": "UNLICENSED",
+  "homepage": "https://github.com/Furriopolis/Chat",
+  "bugs": {
+    "url": "https://github.com/Furriopolis/Chat/issues"
+  },
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "cilinux": "node build.js WINDOWS && node build.js LINUX",
+    "cidarwin": "node build.js MAC",
+    "dist": "cross-env ELECTRON_BUILDER_ALLOW_UNRESOLVED_DEPENDENCIES=true node build.js",
+    "build": "npm run dist -- WINDOWS",
+    "dist:mac": "npm run dist -- MAC",
+    "dist:linux": "npm run dist -- LINUX",
+    "lint": "eslint --config .eslintrc.json .",
+    "ship": "build --win -p always"
+  },
+  "repository": "https://github.com/Furriopolis/Chat",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "devDependencies": {
+    "electron": "^7.0.0",
+    "electron-builder": "^22.1.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cross-env": "^6.0.3",
+    "ejs-electron": "^2.0.3",
+    "electron-updater": "^4.2.0",
+    "jquery": "^3.4.1",
+    "update-electron-app": "^1.5.0"
+  },
+  "build": {
+    "appId": "ml.furriopolis",
+    "productName": "Furriopolis",
+    "files": [
+      "dist",
+      "node_modules",
+      "main.js",
+      "package.json"
+    ],
+    "directories": {
+      "output": "output"
+    },
+    "win": {
+      "publish": {
+        "provider": "github",
+        "private": true,
+        "token": " 54b08da5925559581e7fb52a337fa25fb8cc4749 "
+      }
+    }
+  }
+}

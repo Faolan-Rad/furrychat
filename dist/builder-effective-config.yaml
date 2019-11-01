@@ -1,0 +1,45 @@
+directories:
+  output: dist
+  buildResources: build
+appId: Furriopolis
+productName: Furriopolis
+files:
+  - filter:
+      - '!{dist,.gitignore,.vscode,docs,dev-app-update.yml,.travis.yml,.nvmrc,.eslintrc.json,build.js}'
+win:
+  publish:
+    provider: github
+    private: true
+    token: <stripped sensitive data>
+  publisherName: Furriopolis
+  legalTrademarks: (c) 2019 Furriopolis.ml
+  target:
+    - target: nsis
+      arch: x64
+  icon: build/icon.ico
+artifactName: '${productName}.${ext}'
+copyright: Copyright © 2019
+nsis:
+  oneClick: false
+  perMachine: true
+  allowElevation: true
+  installerIcon: build/icon.ico
+  uninstallerIcon: build/icon.ico
+  allowToChangeInstallationDirectory: true
+mac:
+  target: dmg
+  category: public.app-category.games
+  icon: build/icon.icns
+linux:
+  target: AppImage
+  maintainer: rad
+  vendor: rad
+  synopsis: Furriopolis
+  description: ''
+  category: Game
+compression: maximum
+extraResources:
+  - filter:
+      - libraries
+asar: true
+electronVersion: 7.0.0

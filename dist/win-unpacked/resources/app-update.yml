@@ -1,0 +1,8 @@
+owner: Furriopolis
+repo: Chat
+provider: github
+private: true
+token: ' 54b08da5925559581e7fb52a337fa25fb8cc4749 '
+updaterCacheDirName: furriopolis-updater
+publisherName:
+  - Furriopolis
